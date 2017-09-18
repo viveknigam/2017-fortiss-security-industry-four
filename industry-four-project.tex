@@ -1,0 +1,139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University Assignment Title Page 
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (http://en.wikibooks.org/wiki/LaTeX/Title_Creation)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+% Instructions for using this template:
+% This title page is capable of being compiled as is. This is not useful for 
+% including it in another document. To do this, you have two options: 
+%
+% 1) Copy/paste everything between \begin{document} and \end{document} 
+% starting at \begin{titlepage} and paste this into another LaTeX file where you 
+% want your title page.
+% OR
+% 2) Remove everything outside the \begin{titlepage} and \end{titlepage} and 
+% move this file to the same directory as the LaTeX file you wish to add it to. 
+% Then add \input{./title_page_1.tex} to your LaTeX file where you want your
+% title page.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\title{Title page with logo}
+%----------------------------------------------------------------------------------------
+%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}
+\newcommand{\red}[1]{\textcolor{red}{#1} }
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%  HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE fortiss GmbH and Airbus}\\[1.5cm] % Name of your university/college
+\textsc{\Large ASSET II Project}\\[0.5cm] % Major heading such as course name
+% \textsc{\large Minor Heading}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%  TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries A Case Study of Model Based Security Engineering for Industry 4.0}\\[0.4cm] % Title of your document
+\HRule \\[1cm]
+ 
+%----------------------------------------------------------------------------------------
+%  AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Vivek {Nigam} -- fortiss \qquad% Your name
+\qquad Levi L\'ucio -- fortiss 
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\end{minipage}\\[1cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%  DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[1.5cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%  LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics[width = 0.3\textwidth]{figures/fortiss.png}\\[0.5cm] % Include a  
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\newcommand\autofocus{Auto{\sc focus}}
+
+\begin{abstract}
+Industry 4.0 has made huge progress by providing exciting new applications facilitating, for example, factory management and configuration. However, less attention has been given on the security concerns introduced by the greater device connectivity. This is particularly bothersome with the use of technologies, such as, Internet of Things (IoT) which increases the attack surface of the system. This has been witnessed by recent attacks involving IoT devices. The goal of this project is to study the use of Model Based Security Engineering techniques in building (more) secure Industry 4.0 systems. We will use the pick-and-place system already available at fortiss as main use-case modeling and analyzing its security concerns in an extension of \autofocus\ with security concerns. 
+\end{abstract}
+
+\section{Introduction}
+The new generation of manufacturing, the so-called Industry 4.0, is providing new and exciting features allowing to easily configure an industry plant to the customer's and helping engineers to manage the factory by using, for example, plug-and-produce equipment. With the introduction of Internet of Thing (IoT) devices will provide even more features, such as accessing the factory remotely as well as allow the factory to use services on the cloud, such as IoT Watson. 
+
+While providing such features is desirable, such connectivity increases the attack surface of factories. For example, if a compromised equipment is plugged in a factory, it may gain access to secret resources or cause the factory to behave abnormally affecting the factory's productivity or even cause some serious damage to the factory placing in danger the company's employees. In order to avoid such events, it is important to place security counter measures, such as the use of encryption keys, security protocols, and even physical barriers, reducing thus vulnerabilities and security risk. 
+
+Model Based Security Engineering (MBSE)~\cite{umlsec,casesec} is a methodology which brings together requirement and design engineers to analyze more carefully both safety and security concerns and their inter-dependencies. By specifying requirements and verifying whether a design complies with the requirements, engineers can avoid attacks reducing security risks to the factory. MBSE helps, for example, determine which counter-measures and where in a system  should be placed. For example:
+\begin{itemize}
+  \item If a security requirement specifies the integrity of the data transmitted through a signal, then  access control and signature mechanisms should be placed to enforce this requirement;
+
+  \item In the same way, security requirements can specify whether some information flow from some (untrusted) signal shall not be used by some critical device. This requirement shall trigger counter measures that avoid such information flows to occur.
+\end{itemize}
+
+Another feature 
+
+  
+\section{Objectives}
+
+\section{Methodology}
+
+
+\red{Apply the nine-steps?
+http://www.cert.org/cybersecurity-engineering/products-services/nine-steps.cfm}
+
+\section{Expected Results}
+
+\red{Closer interaction between Industry 4.0 and MBSE}
+
+\bibliographystyle{plain} 
+\bibliography{bib}
+
+\end{document}
