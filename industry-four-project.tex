@@ -31,7 +31,7 @@
 %  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
  
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
@@ -72,7 +72,8 @@
 \begin{flushleft} \large
 \emph{Authors:}\\
 Vivek {Nigam} -- fortiss \qquad% Your name
-\qquad Levi L\'ucio -- fortiss 
+\qquad Levi L\'ucio -- fortiss \qquad \qquad
+\qquad Ben Schneider -- fortiss 
 \end{flushleft}
 \end{minipage}
 ~
@@ -107,31 +108,78 @@ Industry 4.0 has made huge progress by providing exciting new applications facil
 \end{abstract}
 
 \section{Introduction}
-The new generation of manufacturing, the so-called Industry 4.0, is providing new and exciting features allowing to easily configure an industry plant to the customer's and helping engineers to manage the factory by using, for example, plug-and-produce equipment. With the introduction of Internet of Thing (IoT) devices will provide even more features, such as accessing the factory remotely as well as allow the factory to use services on the cloud, such as IoT Watson. 
+The new generation of manufacturing, the so-called Industry 4.0, is providing new and exciting features. Managers can easily configure an industry plant to the customer's needs, as well as help engineers to manage the factory by using, for example, plug-and-produce equipment. With the introduction of Internet of Thing (IoT) devices will provide even more features, such as accessing the factory remotely as well as allow the factory to use services on the cloud, such as IoT Watson. 
 
 While providing such features is desirable, such connectivity increases the attack surface of factories. For example, if a compromised equipment is plugged in a factory, it may gain access to secret resources or cause the factory to behave abnormally affecting the factory's productivity or even cause some serious damage to the factory placing in danger the company's employees. In order to avoid such events, it is important to place security counter measures, such as the use of encryption keys, security protocols, and even physical barriers, reducing thus vulnerabilities and security risk. 
 
-Model Based Security Engineering (MBSE)~\cite{umlsec,casesec} is a methodology which brings together requirement and design engineers to analyze more carefully both safety and security concerns and their inter-dependencies. By specifying requirements and verifying whether a design complies with the requirements, engineers can avoid attacks reducing security risks to the factory. MBSE helps, for example, determine which counter-measures and where in a system  should be placed. For example:
+Model Based Security Engineering (MBSE)~\cite{umlsec,casesec} is a methodology which brings together requirement and design engineers to analyze more carefully both safety and security concerns and their inter-dependencies. By specifying requirements and verifying whether a design complies with the requirements, engineers can avoid attacks reducing security risks to the factory. MBSE helps, for example, determine which counter-measures and where in a system should be placed. For example:
 \begin{itemize}
   \item If a security requirement specifies the integrity of the data transmitted through a signal, then  access control and signature mechanisms should be placed to enforce this requirement;
 
   \item In the same way, security requirements can specify whether some information flow from some (untrusted) signal shall not be used by some critical device. This requirement shall trigger counter measures that avoid such information flows to occur.
 \end{itemize}
+ MBSE also guides the types of verification that can be deployed, for example, formal verification or security testing.
 
-Another feature 
+\red{Some more text here...}
 
+\paragraph{Available Resources and Requested Resources} 
+This is an internal project in fortiss involving the Model-Based Software Engineering and the Industrial Automation groups. 
+\begin{itemize}
+  \item \autofocus -- 
+  \item 4Diac -- 
+  \item Pick-and-Place Component --
+\end{itemize}
   
-\section{Objectives}
+The duration of this project is of 6 months. In order to carry out this project, we require the following resources:
 
-\section{Methodology}
+\begin{itemize}
+  \item 15\% Funding for Vivek Nigam -- XX EUR;
+  \item 15\% Funding for Levi L\'ucio -- XX EUR;
+  \item 15\% Funding for Ben Schneider -- XX EUR;
+  \item HiWi-1 of 20 hours per week -- XX EUR;
+  \item HiWi-2 of 20 hours per week -- XX EUR:
+  \item Total Funding -- XX EUR
+\end{itemize}
 
+\section{Objective and Tasks}
+
+\begin{center}
+  \emph{The main objective of this project is to apply Model-Based Security Engineering methodology in an Industry 4.0 application.}
+\end{center}
+
+\subsection{Tasks}
+
+\begin{itemize}
+  \item Task 0: State of the art reviewing;
+  \item Task 1: Vulnerability and Risk Analysis of the Pick-and-Place;  
+  \item Task 2: Safety and Security Requirements Engineering for the Pick-and-Place; 
+  \item Task 3: Extension of \autofocus\ for Model Based Security Engineering support;
+  \item Task 4: Modeling of the Pick-and-Place in \autofocus;
+  \item Task 5: Investigation and Deployment of formal verification techniques for the Pick-and-Place Model;
+  \item Task 6: Wrap-up with lessons learned.
+  % \item Task 6: Translation of \autofocus\ design to 4Diac specification;
+  % \item Task 7: Security Test-Case generation from the \autofocus\ model;
+  % \item Task 8: Carrying out 
+\end{itemize}
+
+We detail the tasks above in further detail:
+
+\subsection{Timetable}
 
 \red{Apply the nine-steps?
 http://www.cert.org/cybersecurity-engineering/products-services/nine-steps.cfm}
 
 \section{Expected Results}
 
-\red{Closer interaction between Industry 4.0 and MBSE}
+\begin{itemize}
+  \item Security Requirements for the Pick-and-Place;
+  \item \autofocus\ Security Plug-In Development;
+  \item \autofocus\ Model for the Pick-and-Place;
+  \item Identification of Security Risks and Possible Counter-Measures for the Pick-and-Place;
+  \item Closer interaction between Industry 4.0 and Model-Based Software Engineering groups;
+  \item Competence development on Model Based Security Engineering for Industry 4.0;
+  \item Results to be shown at the fortiss Open-House 2018;
+\end{itemize}
 
 \bibliographystyle{plain} 
 \bibliography{bib}
