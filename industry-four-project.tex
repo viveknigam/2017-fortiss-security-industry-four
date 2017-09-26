@@ -40,7 +40,7 @@
 \usepackage{url}
 \newcommand{\red}[1]{\textcolor{red}{#1} }
 
-\begin{document}
+\begin{document} 
 
 \begin{titlepage}
 
@@ -99,28 +99,46 @@ Vivek {Nigam} -- fortiss \qquad% Your name
 
 \vfill % Fill the rest of the page with whitespace
 
-\end{titlepage}
+\end{titlepage} 
 
-\newcommand\autofocus{Auto{\sc focus}}
+\newcommand\autofocus{Auto{\sc focus}} 
 
-\begin{abstract}
+\begin{abstract} 
 Industry 4.0 has made huge progress by providing exciting new applications facilitating, for example, factory management and configuration. However, less attention has been given on the security concerns introduced by the greater device connectivity. This is particularly bothersome with the use of technologies, such as, Internet of Things (IoT) which increases the attack surface of the system. This has been witnessed by recent attacks involving IoT devices. The goal of this project is to study the use of Model Based Security Engineering techniques in building (more) secure Industry 4.0 systems. We will use the pick-and-place system already available at fortiss as main use-case modeling and analyzing its security concerns in an extension of \autofocus\ with security concerns. 
 \end{abstract}
 
-\section{Introduction}
+\section{Introduction} 
 The new generation of manufacturing, the so-called Industry 4.0, is providing new and exciting features. Managers can easily configure an industry plant to the customer's needs, as well as help engineers to manage the factory by using, for example, plug-and-produce equipment. With the introduction of Internet of Thing (IoT) devices will provide even more features, such as accessing the factory remotely as well as allow the factory to use services on the cloud, such as IoT Watson. 
 
 While providing such features is desirable, such connectivity increases the attack surface of factories. For example, if a compromised equipment is plugged in a factory, it may gain access to secret resources or cause the factory to behave abnormally affecting the factory's productivity or even cause some serious damage to the factory placing in danger the company's employees. In order to avoid such events, it is important to place security counter measures, such as the use of encryption keys, security protocols, and even physical barriers, reducing thus vulnerabilities and security risk. 
 
-Model Based Security Engineering (MBSE)~\cite{umlsec,casesec} is a methodology which brings together requirement and design engineers to analyze more carefully both safety and security concerns and their inter-dependencies. By specifying requirements and verifying whether a design complies with the requirements, engineers can avoid attacks reducing security risks to the factory. MBSE helps, for example, determine which counter-measures and where in a system should be placed. For example:
+Model Based Security Engineering (MBSE)~\cite{umlsec,secureuml} is a methodology
+which brings together requirement and design engineers to analyze more carefully both safety and security concerns and their inter-dependencies. By specifying requirements and verifying whether a design complies with the requirements, engineers can avoid attacks reducing security risks to the factory. MBSE helps, for example, determine which counter-measures and where in a system should be placed. For example:
 \begin{itemize}
   \item If a security requirement specifies the integrity of the data transmitted through a signal, then  access control and signature mechanisms should be placed to enforce this requirement;
 
   \item In the same way, security requirements can specify whether some information flow from some (untrusted) signal shall not be used by some critical device. This requirement shall trigger counter measures that avoid such information flows to occur.
 \end{itemize}
- MBSE also guides the types of verification that can be deployed, for example, formal verification or security testing.
+MBSE also guides the types of verification that can be deployed, for example, formal verification or security testing.
 
-\red{Some more text here...}
+A substantial body of work on MBSE exists in the literature~\cite{advancesmds}.
+UMLSec or SecureUML~\cite{umlsec,secureuml} are among the nest known approaches
+to MBSE. Both use well-known UML diagrams such as \emph{Use Case diagrams},
+\emph{Class diagrams}, \emph{Statecharts} or \emph{Sequence diagrams} to model
+the business and the security aspects of an application. Security aspects can be embedded in the models either as orthogonal
+languages that are composed with the business modelling languages, or by making
+use of available facilities or annotation mechanisms already present in those
+languages. Model transformations are then often used in MBSE to either produce
+code or test- and verification-related artifacts directly from the models. This
+allows elevating the level of abstraction at which the security aspects of an
+application are modelled and verified.
+
+Automated model verification is one of the major advantages of the using MBSE.
+Most MBSE approaches use independent back-end verification technologies such as
+model checkers or theorem provers. Such verification technologies become available to
+verify security models given the abstraction levels of those models and the
+abstraction levels at which model checkers or theorem provers operate are
+compatible.
 
 \paragraph{Available Resources and Requested Resources} 
 This is an internal project in fortiss involving the Model-Based Software Engineering and the Industrial Automation groups. 
@@ -169,7 +187,7 @@ We detail the tasks above in further detail:
 \red{Apply the nine-steps?
 http://www.cert.org/cybersecurity-engineering/products-services/nine-steps.cfm}
 
-\section{Expected Results}
+\section{Expected Results} 
 
 \begin{itemize}
   \item Security Requirements for the Pick-and-Place;
