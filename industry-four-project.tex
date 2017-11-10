@@ -49,7 +49,7 @@
 \usepackage{url}
 \usepackage{alltt}
 \usepackage{multirow}
-
+\usepackage{todo}
 
 
 \begin{document} 
@@ -116,7 +116,7 @@ Vivek {Nigam} -- fortiss \qquad% Your name
 \newcommand\autofocus{Auto{\sc focus}} 
 
 \begin{abstract} 
-Industry 4.0 has made huge progress by providing exciting new applications facilitating, for example, factory management and configuration. However, less attention has been given on the security concerns introduced by the greater device connectivity. This is particularly bothersome with the use of technologies, such as, Internet of Things (IoT) which increases the attack surface of the system. This has been witnessed by recent attacks involving IoT devices. The goal of this project is to study the use of Model Based Security Engineering techniques in building (more) secure Industry 4.0 systems. We will use the pick-and-place system already available at fortiss as main use-case modeling and analyzing its security concerns in an extension of \autofocus\ with security concerns. 
+Industry 4.0 has made huge progress by providing exciting new applications facilitating, for example, factory management and configuration. However, less attention has been given on the security concerns introduced by the greater device connectivity. This is particularly bothersome with the use of technologies, such as, Internet of Things (IoT) which increases the attack surface of the system. These vulnerabilites have been witnessed by recent attacks involving IoT devices. The goal of this project is to study the use of Model Based Security Engineering techniques in building (more) secure Industry 4.0 systems. We will use the pick-and-place station already available at fortiss as main use-case modeling and analyzing its security concerns in an extension of \autofocus. 
 \end{abstract}
 
 \section{Introduction} 
@@ -152,27 +152,35 @@ code or test- and verification-related artifacts directly from the models. This
 allows elevating the level of abstraction at which the security aspects of an
 application are modeled and verified.
 
-\textbf{Automated model verification is one of the major advantages of the using MBSE.}
+\textbf{Automated model verification is one of the major advantages of MBSE.}
 Most MBSE approaches use independent back-end verification technologies such as
 model checkers or theorem provers. Such verification technologies become available to
 verify security models given the abstraction levels of those models and the
 abstraction levels at which model checkers or theorem provers operate are
 compatible.
 
+\section{Resources}
+
+two groups are involved. yadayada 
+
+\subsection{Available Resources}
+
+\subsection{Requested Resourced}
+
 \paragraph{Available Resources and Requested Resources} 
-This is an internal project in fortiss involving the Model-Based Software Engineering and the Industrial Automation groups. 
+This is an internal project in fortiss involving the Model-Based Software Engineering and the Industry 4.0 competence fields. 
 \begin{itemize}
   \item \autofocus\ is a model-based framework developed in fortiss built on top of the FOCUS mathematical framework. It supports: requirements, including glossaries, data dictionaries and meta-data in the form of aspects; model elements for component design (code specifications, automata, etc); traceability of requirements and model elements; code generation; and integration with formal verification tools (Z3 and NuSMV). However, \textbf{\autofocus\ currently does not support Model-Based Security Engineering lacking features that allow the specification of security requirements, risk analysis models, and security model elements (crypto-languages, etc)};
 
 
-  \item Pick-and-Place Component -- The pick-and-place component is one of the factory elements maintained in fortiss. Its purpose is to place a cap on a cylinder. In particular, it contains all the necessary sensors to detect when the cylinder is at the correct place, and components to pick the cap from a station and place it on the cylinder. Moreover, the pick-and-place supports ``plug-and-produce'', allowing automatically work in conjunction with another ``plug-and-produce''. \textbf{However, currently no security counter measures have been put into place to defend against malicious agents, such as a malicious component that may gather information of the factory or even send incorrect events disrupting the factory's production.}
+  \item Pick-and-Place Component -- The Festo Didactic pick-and-place station is one of the factory elements maintained at fortiss. Its purpose is to place a cap on a cylinder. In particular, it contains all the necessary sensors to detect when the cylinder is at the correct place, and components to pick the cap from a station and place it on the cylinder. Moreover, the pick-and-place supports ``plug-and-produce'', allowing automatically work in conjunction with another ``plug-and-produce''. \textbf{However, currently no security counter measures have been put into place to defend against malicious agents, such as a malicious component that may gather information of the factory or even send incorrect events disrupting the factory's production.}
 \end{itemize}
 
 \paragraph{Opportunity 1:} \textbf{The completion of this project will greatly develop competence on MBSE for Industry 4.0 and possibly other domains.}  On the one hand, \autofocus\ provides a platform for building prototypes supporting MBSE. On the other hand, the Pick-and-Place component provides an ideal example for applying MBSE;
 
 \paragraph{Opportunity 2:} We expect to show the outcomes of this project at fortiss' next Open House to be held after 2018 summer break. \textbf{The completion of this project will allow fortiss to advertise its competence on MBSE using the realistic (and eye catching) example of Industry 4.0.}
 
-\paragraph{Opportunity 3:} We expect a closer interaction between the Model-Based Software Engineering and Automation Groups. \textbf{This will lead to further collaborations between these (complementary) groups.}
+\paragraph{Opportunity 3:} We expect a closer interaction between the Model-Based Software Engineering and Industry 4.0 competence fields. \textbf{This will lead to further collaborations between these (complementary) groups.}
 
 \bigskip
 
@@ -278,7 +286,7 @@ We list some of the results expected from the completion of this project:
 \end{itemize}
 
 
-There are many possibilities that may emerge from this project. It should be possible to apply the competence on MBSE and the machinery built in \autofocus\ in other domains, such as Avionics, IoT applications, and other Cyber-Physical systems. At the medium-term, the modeling of the Pick-and-Place will help us understand the differences between \autofocus\ and 4diac, the framework used by the Industrial Automation Group. We could then leverage the modeling capabilities of \autofocus, such as connections with formal verification, and the capabilities of 4diac, such as automatic code deployment.
+There are many possibilities that may emerge from this project. It should be possible to apply the competence on MBSE and the machinery built in \autofocus\ in other domains, such as Avionics, IoT applications, and other Cyber-Physical systems. At the medium-term, the modeling of the Pick-and-Place will help us understand the differences between \autofocus\ and 4diac, the framework developed in the Industry 4.0 group. We could then leverage the modeling capabilities of \autofocus, such as connections with formal verification, and the capabilities of 4diac, such as automatic code deployment.
 
 
 \bibliographystyle{plain} 
