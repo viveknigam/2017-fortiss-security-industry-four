@@ -51,6 +51,22 @@
 \usepackage{multirow}
 \usepackage{todo}
 
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\nb}[2]{
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
+    {$\blacktriangleright$#2$\blacktriangleleft$}
+   }
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+  }
+  {\newcommand{\nb}[2]{}
+   \newcommand{\version}{} 
+  }
+\newcommand\levi[1]{\nb{Levi}{\textcolor{blue}{#1}}}
+\newcommand\vivek[1]{\nb{Vivek}{\textcolor{red}{#1}}}
+\newcommand\ben[1]{\nb{Ben}{\textcolor{teal}{#1}}}
+
 
 \begin{document} 
 
@@ -116,7 +132,8 @@ Vivek {Nigam} -- fortiss \qquad% Your name
 \newcommand\autofocus{Auto{\sc focus}} 
 
 \begin{abstract} 
-Industry 4.0 has made huge progress by providing exciting new applications facilitating, for example, factory management and configuration. However, less attention has been given on the security concerns introduced by the greater device connectivity. This is particularly bothersome with the use of technologies, such as, Internet of Things (IoT) which increases the attack surface of the system. These vulnerabilites have been witnessed by recent attacks involving IoT devices. The goal of this project is to study the use of Model Based Security Engineering techniques in building (more) secure Industry 4.0 systems. We will use the pick-and-place station already available at fortiss as main use-case modeling and analyzing its security concerns in an extension of \autofocus. 
+Industry 4.0 has made huge progress by providing exciting new applications
+facilitating, for example, factory management and configuration. However, less attention has been given on the security concerns introduced by the greater device connectivity. This is particularly bothersome with the use of technologies, such as, Internet of Things (IoT) which increases the attack surface of the system. These vulnerabilities have been witnessed by recent attacks involving IoT devices. The goal of this project is to study the use of Model Based Security Engineering techniques in building (more) secure Industry 4.0 systems. We will use the pick-and-place station already available at fortiss as main use-case modeling and analyzing its security concerns in an extension of \autofocus.
 \end{abstract}
 
 \section{Introduction} 
@@ -128,15 +145,27 @@ The new generation of manufacturing, the so-called Industry 4.0, is providing ne
   \emph{The main objective of this project is to apply Model-Based Security Engineering methodology for building secure Industry 4.0 applications.} 
 \end{center}
 
-\textbf{Model Based Security Engineering (MBSE)}~\cite{umlsec,secureuml} is a methodology
-which brings together requirement and design engineers to analyze more carefully both safety and security concerns and their inter-dependencies. By specifying requirements and verifying whether a design complies with given requirements, \textbf{engineers can avoid attacks reducing security risks.} 
-MBSE can also help determine \textbf{which counter-measures and where in a system} should be placed in order to reduce security risks.  
+\textbf{Model Based Security Engineering (MBSE)}~\cite{umlsec,secureuml} is a
+methodology which brings together requirement and design engineers to carefully
+analyze both safety and security concerns and their inter-dependencies. By
+specifying requirements and verifying whether a design complies with given
+requirements, \textbf{engineers can avoid attacks reducing security risks.} MBSE
+can also help in determining \textbf{which counter-measures and where in a
+system} should be placed in order to reduce security risks.
 \begin{itemize}
   \item If a \textbf{security requirement specifies the integrity} of the data transmitted through a signal, then access control and signature mechanisms should be placed to enforce this requirement;
 
-  \item In the same way, security requirements can specify whether some information flow from some (untrusted) signal shall not be used by some critical device. This requirement shall trigger counter measures that avoid such information flows to occur;
+  \item In the same way, security requirements can specify whether some
+  information flow from some (untrusted) signal should not be used by some
+  critical device. This requirement shall trigger counter measures that avoid such information flows to occur;
 
-  \item Models, such as Attack-Defense Trees, help engineers to \textbf{organize threats, desired security properties, counter-measures and their (casual) relationships.} Moreover, by using annotations, such as the likelihood of threats and the damage caused by security property violation, it is possible to automate security risk analysis providing indications on where there is high security risk and where suitable counter-measures should be placed.
+  \item Models, such as Attack-Defense Trees, help engineers in
+  \textbf{organizing threats, desired security properties, counter-measures and
+  their (casual) relationships.} Moreover, by using annotations, such as the
+  likelihood of threats and the damage caused by security property violation, it
+  is possible to automate security risk analysis providing indications on where
+  high security risks exist and where suitable counter-measures should be
+  placed.
 \end{itemize}
 MBSE also guides the types of verification that can be deployed, for example, formal verification or security testing.
 
@@ -154,14 +183,10 @@ application are modeled and verified.
 
 \textbf{Automated model verification is one of the major advantages of MBSE.}
 Most MBSE approaches use independent back-end verification technologies such as
-model checkers or theorem provers. Such verification technologies become available to
-verify security models given the abstraction levels of those models and the
-abstraction levels at which model checkers or theorem provers operate are
-compatible.
+model checkers or theorem provers. Such verification technologies are compatible 
+with the abstraction levels at which security models are typically specified.
 
 \section{Resources}
-
-two groups are involved. yadayada 
 
 \subsection{Available Resources}
 
@@ -170,17 +195,32 @@ two groups are involved. yadayada
 \paragraph{Available Resources and Requested Resources} 
 This is an internal project in fortiss involving the Model-Based Software Engineering and the Industry 4.0 competence fields. 
 \begin{itemize}
-  \item \autofocus\ is a model-based framework developed in fortiss built on top of the FOCUS mathematical framework. It supports: requirements, including glossaries, data dictionaries and meta-data in the form of aspects; model elements for component design (code specifications, automata, etc); traceability of requirements and model elements; code generation; and integration with formal verification tools (Z3 and NuSMV). However, \textbf{\autofocus\ currently does not support Model-Based Security Engineering lacking features that allow the specification of security requirements, risk analysis models, and security model elements (crypto-languages, etc)};
+  \item \autofocus\ is a model-based framework developed in fortiss built on top
+  of the FOCUS mathematical framework. It supports: requirements, including
+  glossaries, data dictionaries and meta-data in the form of aspects; model elements for component design (code specifications, automata, etc); traceability of requirements and model elements; code generation; and integration with formal verification tools (Z3 and NuSMV). However, \textbf{\autofocus\  does not currently support Model-Based Security Engineering that allow the specification of security requirements, risk analysis models, and security model elements (crypto-languages, etc)};
 
 
-  \item Pick-and-Place Component -- The Festo Didactic pick-and-place station is one of the factory elements maintained at fortiss. Its purpose is to place a cap on a cylinder. In particular, it contains all the necessary sensors to detect when the cylinder is at the correct place, and components to pick the cap from a station and place it on the cylinder. Moreover, the pick-and-place supports ``plug-and-produce'', allowing automatically work in conjunction with another ``plug-and-produce''. \textbf{However, currently no security counter measures have been put into place to defend against malicious agents, such as a malicious component that may gather information of the factory or even send incorrect events disrupting the factory's production.}
+  \item Pick-and-Place Component -- The Festo Didactic pick-and-place station is
+  one of the factory elements maintained at fortiss. Its purpose is to place a
+  cap on a cylinder. In particular, it contains all the necessary sensors to
+  detect when the cylinder is at the correct place, and components to pick the
+  cap from a station and place it on the cylinder. Moreover, the pick-and-place
+  supports ``plug-and-produce'', allowing automatic connection and work with
+  ``plug-and-produce'-enabled devices'. \textbf{However, no security
+  counter measures are currently in place to defend against malicious agents.
+  An example of such agents are malicious components that may gather information
+  about the factory or even send incorrect events to disrupt the factory's production.}
 \end{itemize}
 
-\paragraph{Opportunity 1:} \textbf{The completion of this project will greatly develop competence on MBSE for Industry 4.0 and possibly other domains.}  On the one hand, \autofocus\ provides a platform for building prototypes supporting MBSE. On the other hand, the Pick-and-Place component provides an ideal example for applying MBSE;
+\paragraph{Opportunity 1:} \textbf{The completion of this project will greatly
+develop competence on MBSE for Industry 4.0}. On the one hand, \autofocus\
+provides a platform for building prototypes supporting MBSE. On the other hand, the Pick-and-Place component provides an ideal example for applying MBSE;
 
-\paragraph{Opportunity 2:} We expect to show the outcomes of this project at fortiss' next Open House to be held after 2018 summer break. \textbf{The completion of this project will allow fortiss to advertise its competence on MBSE using the realistic (and eye catching) example of Industry 4.0.}
+\paragraph{Opportunity 2:} We expect to show the outcomes of this project at
+fortiss' next Open House to be held after the 2018 summer break. \textbf{The
+completion of this project will allow fortiss to advertise its competence on MBSE using the realistic (and eye catching) example of Industry 4.0.}
 
-\paragraph{Opportunity 3:} We expect a closer interaction between the Model-Based Software Engineering and Industry 4.0 competence fields. \textbf{This will lead to further collaborations between these (complementary) groups.}
+\paragraph{Opportunity 3:} We expect a close interaction between the Model-Based Software Engineering and Industry 4.0 competence fields. \textbf{This will lead to further collaborations between these (complementary) groups.}
 
 \bigskip
 
@@ -188,24 +228,25 @@ This is an internal project in fortiss involving the Model-Based Software Engine
 The duration of this project is of 6 months. In order to carry out this project, we require the following resources:
 
 \begin{itemize}
-  \item 15\% Funding for Vivek Nigam -- XX EUR;
-  \item 15\% Funding for Levi L\'ucio -- XX EUR;
-  \item 15\% Funding for Ben Schneider -- XX EUR;
-  \item HiWi-1 of 20 hours per week -- XX EUR;
-  \item HiWi-2 of 20 hours per week -- XX EUR:
-  \item Total Funding -- XX EUR
+  \item 15\% Funding for Vivek Nigam;
+  \item 15\% Funding for Levi L\'ucio;
+  \item 15\% Funding for Ben Schneider;
+  \item HiWi-1 of 20 hours per week;
+  \item HiWi-2 of 20 hours per week.
 \end{itemize}
 
 \section{Tasks}
 
-In order to achieve such objective, we envision the following tasks:
+For this project we envision the following tasks:
 
 \begin{itemize}
   \item Task 0: State of the art reviewing;
-  \item Task 1: Vulnerability and Risk Analysis of the Pick-and-Place;  
-  \item Task 2: Security Requirements Engineering for the Pick-and-Place; 
-  \item Task 3: Extension of \autofocus\ for Model Based Security Engineering support;
-  \item Task 4: Modeling of the Pick-and-Place in \autofocus;
+  \item Task 1: Vulnerability and Risk Analysis of the Pick-and-Place example;  
+  \item Task 2: Security Requirements Engineering for the Pick-and-Place
+  example;
+  \item Task 3: Extension of \autofocus\ for Model Based Security Engineering
+  support example;
+  \item Task 4: Modeling of the Pick-and-Place example in \autofocus;
   \item Task 5: Investigation and Deployment of formal verification techniques for the Pick-and-Place Model;
   \item Task 6: Wrap-up with lessons learned.
   % \item Task 6: Translation of \autofocus\ design to 4Diac specification;
@@ -213,34 +254,62 @@ In order to achieve such objective, we envision the following tasks:
   % \item Task 8: Carrying out 
 \end{itemize}
 
-We detail the tasks above in further detail:
+\paragraph{Task 0:} This project will start with an assessment of the current
+state-of-the-art of MBSE. We will be particularly interested in identifying methodologies for writing security requirements, including identification of threats and counter-measures; and models for reasoning about security issues, such as Attack-Defense trees.
 
-\paragraph{Task 0:} This project will start with an assessment of the current state-of-the-art on MBSE. We will be particularly interested in identifying methodologies for writing security requirements, including identification of threats and counter-measures; and models for reasoning about security issues, such as Attack-Defense trees. 
+\paragraph{Task 1:} We will carry out a systematic vulnerability and risk
+analysis of the Pick-and-Place component. This includes the identification of
+desired security properties and the damage caused by their violation; entry
+points and the likelihood that an attacker gains access to such entry points;
+and counter measures to be used.
 
-\paragraph{Task 1:} We will carry out a systematic vulnerability and risk analysis of the Pick-and-Place component. This includes the identification of desired security properties and the damage caused with their violation; entry points and the likelihood that an attacker can gain access to such entry points; and counter measures to be used;
+\paragraph{Task 2:} Based on the vulnerability analysis, we will develop a set
+of security requirements. These requirements will be written in \autofocus\ and
+will include enough meta-data to allow for the use of formal verification
+techniques. More specifically we will develop new security aspects for
+\autofocus, for example vulnerability, threats, assets and countermeasure
+aspects.
 
-\paragraph{Task 2:} Based on the vulnerability analysis, we will develop a set of security requirements. This will be written in \autofocus\ with enough meta-data to allow for the use of formal verification techniques;
+\paragraph{Task 3:} Since \autofocus\ does not currently support MBSE, we will
+extend it with features that will allow applying MBSE to the pick-and-place
+component.
+This includes adding support for security requirements; adding model elements
+for risk analysis such as attack-defense trees; and extending \autofocus\
+language with a crypto-language. These elements should be integrated with \autofocus'
+requirements and aspects.
 
-\paragraph{Task 3:} Since \autofocus\ does not currently support MBSE, we will extend it with the necessary features for applying MBSE on the pick-and-place component. This includes adding support for security requirements; adding model elements for risk analysis; extending \autofocus\ language with crypto-language.
+\paragraph{Task 4:} Given the identified security requirements and \autofocus\
+extensions, we plan to model the Pick-and-Place example in \autofocus. This
+includes adding traces from security requirements to model elements and
+implementing identified counter measures.
 
-\paragraph{Task 4:} Given the identified security requirements and \autofocus\ extensions, we plan to model the Pick-and-Place component in \autofocus. This includes adding traces from security requirements to model elements and implementing identified counter measures;
+\paragraph{Task 5:} We will also investigate the use of formal verification
+techniques. This includes automating risk analysis and the use of
+formal verification for identification of security flaws. For this we will use
+verification tools that are already integrated with \autofocus, namely Z3 and
+NuSMV. We shall extend existing \autofocus' model transformations into NuSMV
+to include a crypto-language and security requirements expressed as aspects.
 
-\paragraph{Task 5:} We will also investigate the use of formal verification techniques. This includes automating risk analysis and the use of verification for identification of security flaws. For this we will use the tools that are already integrated with \autofocus, namely Z3 and NuSMV;
-
-\paragraph{Task 6:} At the end, we will write a technical report with the lessons learned. We also expect some publications from the work developed for this project.
+\paragraph{Task 6:} At the end of the project we will write a technical report
+with the lessons learned. We also expect some publications from the work developed for
+this project.
 
 
 \subsection{Resource Allocation and Timetable}
 
-We can divide the activities into two different teams. One team led by Ben Schneider working on the tasks closer to the Industrial Automation Group and the second team led by Vivek Nigam working on the tasks closer to the Model-Based Software Engineering group.
+We will divide the activities into two different teams. One team will be led by
+Ben Schneider and will work on the tasks closer to the Industrial Automation
+Group. The second team, led by Vivek Nigam, will work on the tasks
+closer to the Model-Based Software Engineering group.
 
 \begin{itemize}
   \item \textbf{Team 1:} Ben Schneider and one HiWi. This team will concentrate on the tasks more directly related to the Pick-and-Place, namely Tasks 1, 2 and 4;
-  \item \textbf{Team 2:} Vivek Nigam, Levy Lúcio and one HiWi. This team will concentrate on the tasks related to the MBSE, namely, Task 3, 4, and 5.
+  \item \textbf{Team 2:} Vivek Nigam, Levi Lúcio and one HiWi. This team will
+  concentrate on the tasks related to the MBSE, namely, Task 3, 4, and 5.
 \end{itemize}
-Notice that task 4 will be carried out by both teams as well as tasks 0 and 6.
+Notice that tasks 0, 4 and 6 will be carried out by both teams.
 
-The following table depicts the timetable of projects.  
+Table~\ref{table:timetable} depicts the timetable of projects.  
 
 \begin{table}[h]
 \begin{center}
@@ -267,6 +336,7 @@ The following table depicts the timetable of projects.
  \end{tabular}
 \end{center}
 \caption{Timetable of the Project}
+\label{table:timetable}
 \end{table}
 
 
@@ -275,18 +345,26 @@ The following table depicts the timetable of projects.
 We list some of the results expected from the completion of this project:
 
 \begin{itemize}
-  \item Security Requirements for the Pick-and-Place;
+  \item Security Requirements for the Pick-and-Place example;
   \item \autofocus\ Security Plug-In Development;
-  \item \autofocus\ Model for the Pick-and-Place;
-  \item Identification of Security Risks and Possible Counter-Measures for the Pick-and-Place;
+  \item \autofocus\ Model for the Pick-and-Place example;
+  \item Identification of Security Risks and Possible Counter-Measures for the
+  Pick-and-Place example;
   \item Closer interaction between Industry 4.0 and Model-Based Software Engineering groups;
   \item Competence development on Model Based Security Engineering for Industry 4.0;
-  \item Results to be shown at the fortiss Open-House 2018;
+  \item Presentation of our results at the fortiss Open-House 2018;
   \item Technical report and publications.
 \end{itemize}
 
 
-There are many possibilities that may emerge from this project. It should be possible to apply the competence on MBSE and the machinery built in \autofocus\ in other domains, such as Avionics, IoT applications, and other Cyber-Physical systems. At the medium-term, the modeling of the Pick-and-Place will help us understand the differences between \autofocus\ and 4diac, the framework developed in the Industry 4.0 group. We could then leverage the modeling capabilities of \autofocus, such as connections with formal verification, and the capabilities of 4diac, such as automatic code deployment.
+There are many possibilities that may emerge from this project. It should be
+possible to apply the competence on MBSE and the machinery built in \autofocus
+to other domains, such as Avionics, IoT applications, and other Cyber-Physical
+systems. In the medium-term, the modeling of the Pick-and-Place will help us
+understand the differences between \autofocus and 4diac, the framework
+developed in the Industry 4.0 group. A possibility would then be to leverage the
+modeling capabilities of \autofocus, such as connections with formal verification, and
+the capabilities of 4diac, such as automatic code deployment.
 
 
 \bibliographystyle{plain} 
